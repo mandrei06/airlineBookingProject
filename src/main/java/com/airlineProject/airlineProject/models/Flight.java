@@ -1,9 +1,14 @@
 package com.airlineProject.airlineProject.models;
 
+import jakarta.persistence.*;
+
 import java.time.Duration;
 import java.util.Date;
-
+@Entity
+@Table(name = "flight")
 public class Flight {
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer id;
     private Integer companyId;
     private Boolean returning;

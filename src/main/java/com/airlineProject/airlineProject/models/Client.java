@@ -1,6 +1,12 @@
 package com.airlineProject.airlineProject.models;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "client")
 public class Client {
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer id;
     private String name;
     private String surname;
