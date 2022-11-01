@@ -1,7 +1,16 @@
 package com.airlineProject.airlineProject.models;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "booking")
 public class Booking {
-    private Integer bookingId, flightId, clientId;
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    private Integer bookingId;
+
+    private Integer flightId;
+    private Integer clientId;
 
     public Integer getBookingId() {
         return bookingId;
