@@ -1,4 +1,4 @@
-package repository;
+package com.airlineProject.airlineProject.repository;
 
 import com.airlineProject.airlineProject.models.Booking;
 import org.springframework.data.jpa.repository.JpaRepository;
