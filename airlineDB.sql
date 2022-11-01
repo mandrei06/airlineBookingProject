@@ -86,7 +86,7 @@ CREATE TABLE IF NOT EXISTS `flight` (
   CONSTRAINT `FK__company` FOREIGN KEY (`companyId`) REFERENCES `company` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table airline.flight: ~10 rows (approximately)
+-- Dumping data for table airline.flight: ~22 rows (approximately)
 INSERT INTO `flight` (`id`, `companyId`, `returning`, `origin`, `destination`, `price`, `date`, `duration`, `layovers`, `luggage`) VALUES
 	(0, 1, 1, 'Sevilla', 'Paris', '402', '17/10/2022', '2:30', 0, 1),
 	(1, 1, 1, 'London', 'Athens', '40', '15/10/2022', '2:30', 0, 1),
@@ -97,7 +97,19 @@ INSERT INTO `flight` (`id`, `companyId`, `returning`, `origin`, `destination`, `
 	(6, 3, 1, 'Berlin', 'Mumbai', '250', '23/10/2022', '15:10', 1, 1),
 	(7, 3, 1, 'Mumbai', 'Berlin', '250', '24/10/2022', '15:10', 1, 1),
 	(8, 3, 1, 'New York', 'Singapore', '405', '25/10/2022', '21:01', 3, 1),
-	(9, 3, 1, 'Singapore', 'New York', '405', '26/10/2022', '21:01', 3, 1);
+	(9, 3, 1, 'Singapore', 'New York', '405', '26/10/2022', '21:01', 3, 1),
+	(10, 1, 1, 'Oslo', 'Rome', '32', '27/10/2022', '2:00', 0, 0),
+	(11, 1, 1, 'Rome', 'Oslo', '32', '28/10/2022', '2:00', 0, 0),
+	(12, 2, 1, 'Tunis', 'Istanbul', '55', '29/10/2022', '1:45', 0, 1),
+	(13, 2, 1, 'Istanbul', 'Tunis', '55', '29/10/2022', '1:45', 0, 1),
+	(14, 2, 1, 'Vienna', 'Dublin', '60', '30/10/2022', '3:10', 1, 1),
+	(15, 2, 1, 'Dublin', 'Vienna', '60', '31/10/2022', '3:10', 1, 1),
+	(16, 3, 1, 'Sydney', 'Toronto', '375', '1/11/2022', '12:20', 2, 1),
+	(17, 3, 1, 'Toronto', 'Sydney', '375', '2/11/2022', '12:20', 2, 1),
+	(18, 1, 1, 'Belfast', 'Moscow', '88', '3/11/2022', '5:00', 1, 1),
+	(19, 1, 1, 'Moscow', 'Belfast', '88', '4/11/2022', '5:00', 1, 1),
+	(20, 1, 1, 'Stolkholm', 'Minsk', '77', '6/11/2022', '5:30', 0, 1),
+	(21, 1, 1, 'Minsk', 'Stolkholm', '77', '5/11/2022', '5:30', 0, 1);
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
