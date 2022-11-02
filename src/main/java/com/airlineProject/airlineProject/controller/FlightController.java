@@ -31,9 +31,14 @@ public class FlightController {
         System.out.println(flightService.findFlightsByOrigin(origin));
         return flightService.findFlightsByOrigin(origin);}
 
-    @GetMapping("/list/{origin}/{destination}")
+    @GetMapping("/list/{origin}/{destination}/price")
     public Integer returnFlightPrice(@PathVariable("origin")String origin, @PathVariable("destination")String destination){
         return flightService.findOriginAndDestinationPrice(origin,destination);
+    }
+
+    @GetMapping("/list/{origin}/{destination}/price/luggage")
+    public Integer returnPriceWithLuggageOrNot(@PathVariable String origin, @PathVariable String destination,Integer luggageTrueOrFalse){
+        return flightService.priceWithLuggage(origin,destination,0);
     }
 
 }
