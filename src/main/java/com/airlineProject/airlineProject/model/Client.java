@@ -1,4 +1,4 @@
-package com.airlineProject.airlineProject.models;
+package com.airlineProject.airlineProject.model;
 
 import jakarta.persistence.*;
 
@@ -6,7 +6,6 @@ import jakarta.persistence.*;
 @Table(name = "client")
 public class Client {
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer id;
     private String name;
     private String surname;

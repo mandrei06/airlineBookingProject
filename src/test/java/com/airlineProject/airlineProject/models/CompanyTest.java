@@ -1,10 +1,9 @@
 package com.airlineProject.airlineProject.models;
 
+import com.airlineProject.airlineProject.model.Company;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class CompanyTest {
 

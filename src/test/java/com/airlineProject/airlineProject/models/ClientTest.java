@@ -1,5 +1,6 @@
 package com.airlineProject.airlineProject.models;
 
+import com.airlineProject.airlineProject.model.Client;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
