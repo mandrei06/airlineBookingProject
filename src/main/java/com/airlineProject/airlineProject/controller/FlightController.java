@@ -41,7 +41,7 @@ public class FlightController {
         return flightService.priceWithLuggage(origin,destination,0);
     }*/
 
-    @GetMapping("/{flightId}/priceWithLuggage")
+    @GetMapping("/{origin}/priceWithLuggage")
     public Integer returnPriceWithLuggage(@PathVariable("origin") String origin){
         return flightService.priceWithLuggage(origin)+30;
     }
