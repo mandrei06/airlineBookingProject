@@ -1,9 +1,12 @@
 package com.airlineProject.airlineProject.service;
 
 import com.airlineProject.airlineProject.model.Booking;
+import com.airlineProject.airlineProject.model.Flight;
 import com.airlineProject.airlineProject.repository.BookingRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class BookingService {
@@ -19,6 +22,7 @@ public class BookingService {
     public Booking findBookingById(Integer bookingId) {
         return bookingRepo.findByBookingId(bookingId);
     }
+
 
 
 }

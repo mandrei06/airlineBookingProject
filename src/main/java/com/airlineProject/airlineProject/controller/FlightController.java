@@ -26,5 +26,34 @@ public class FlightController {
         return flightService.findAllFlights();
     }
 
+    @GetMapping("/list/{origin}")
+    public List<Flight> returnAvailableFlight(@PathVariable("origin") String origin){
+        System.out.println(flightService.findFlightsByOrigin(origin));
+        return flightService.findFlightsByOrigin(origin);}
+
+    @GetMapping("/list/{origin}/{destination}/price")
+    public Integer returnFlightPrice(@PathVariable("origin")String origin, @PathVariable("destination")String destination){
+        return flightService.findOriginAndDestinationPrice(origin,destination);
+    }
+
+   /* @GetMapping("/list/{origin}/{destination}/price/luggage")
+    public Integer returnPriceWithLuggageOrNot(@PathVariable String origin, @PathVariable String destination,Integer luggageTrueOrFalse){
+        return flightService.priceWithLuggage(origin,destination,0);
+    }*/
+
+    @GetMapping("/{flightId}/priceWithLuggage")
+    public Integer returnPriceWithLuggage(@PathVariable("origin") String origin){
+        return flightService.priceWithLuggage(origin)+30;
+    }
+
+    @GetMapping("/{origin}/priceWithoutLuggage")
+    public Integer returnPriceWithoutLuggage(@PathVariable("origin")String origin){
+        return flightService.priceWithoutLuggage(origin);
+    }
+
+    @GetMapping("/{origin}/destinations")
+    public String returnDestinationByOrigin(@PathVariable("origin")String origin){
+        return flightService.destinationByOrigin(origin);
+    }
 
 }
