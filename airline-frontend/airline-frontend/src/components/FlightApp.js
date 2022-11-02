@@ -1,7 +1,23 @@
 import React from "react";
-import './FlightApp.css'
+import './FlightApp.css';
+import axios from 'axios';
 
-const FlightApp = () => {
+
+export default class FlightList extends React.Component {
+    state = {
+      flights: []
+    }
+  
+    componentDidMount() {
+        axios.get(`http://localhost:8080/flights/all`)
+        .then(res => {
+          const flights = res.data;
+          this.setState({ flights });
+          console.log(flights);
+        })
+    }
+  
+    render(){
     return (
     <React.Fragment>
         <section>
@@ -39,9 +55,13 @@ const FlightApp = () => {
                             <div>
                                 <div>
                                     <b >Flying From?</b>
-                                    <select>
-                                        <option>--Select Airtport--</option>
-                                    </select>
+                                    <select options={
+                                        this.state.flights
+                                        .map(flight =>
+                                            <li key={flight.id}>{flight.origin}</li>
+                                        )
+                                    
+                                    }></select>
                                     <br></br>
                                     <br></br>
                                 </div>
@@ -67,7 +87,7 @@ const FlightApp = () => {
                                 <div>
                                     <div>
                                         <b>Departure Date</b>
-                                        <input type='date'c/>
+                                        <input type='date'/>
                                     </div>
                                     <div>Error</div>
                                 </div>
@@ -79,7 +99,7 @@ const FlightApp = () => {
                                 <div>
                                     <div>
                                         <b>Return Date</b>
-                                        <input type='date'c/>
+                                        <input type='date'/>
                                     </div>
                                     <div>Error</div>
                                 </div>
@@ -90,7 +110,7 @@ const FlightApp = () => {
                                 <div>
                                     <div>
                                         <b>Number of Passengers Older than 9</b>
-                                        <input type="number" max={10} min={0} value={0}/>
+                                        <input type="number" max={10} min={0} />
                                     </div>
                                 </div>
                             </div>
@@ -100,7 +120,7 @@ const FlightApp = () => {
                                 <div>
                                     <div>
                                         <b>Number of Passengers between 9 and 2</b>
-                                        <input type="number" max={10} min={0} value={0}/>
+                                        <input type="number" max={10} min={0}/>
                                     </div>
                                 </div>
                             </div>
@@ -110,7 +130,7 @@ const FlightApp = () => {
                                 <div>
                                     <div>
                                         <b>Number of Passengers younger than 10</b>
-                                        <input type="number" max={10} min={0} value={0}/>
+                                        <input type="number" max={10} min={0} />
                                     </div>
                                 </div>
                             </div>
@@ -123,4 +143,5 @@ const FlightApp = () => {
     );
 };
 
-export default FlightApp;
+
+}
