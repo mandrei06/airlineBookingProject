@@ -5,6 +5,8 @@ import com.airlineProject.airlineProject.repository.FlightRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class FlightService {
     @Autowired
@@ -19,4 +21,7 @@ public class FlightService {
 
     }
 
+    public List<Flight> findAllFlights() {
+        return flightRepo.findAll();
+    }
 }
