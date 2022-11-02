@@ -23,33 +23,33 @@ USE `airline`;
 -- Dumping structure for table airline.booking
 DROP TABLE IF EXISTS `booking`;
 CREATE TABLE IF NOT EXISTS `booking` (
-  `id` int(11) NOT NULL,
+  `bookingId` int(11) NOT NULL,
   `flightId` int(11) NOT NULL,
   `clientId` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
+  PRIMARY KEY (`bookingId`) USING BTREE,
   KEY `FK__flight` (`flightId`),
-  KEY `FK_booking_client` (`clientId`),
-  CONSTRAINT `FK__flight` FOREIGN KEY (`flightId`) REFERENCES `flight` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `FK_booking_client` FOREIGN KEY (`clientId`) REFERENCES `client` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  KEY `FK_booking_client` (`clientId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table airline.booking: ~0 rows (approximately)
+-- Dumping data for table airline.booking: ~1 rows (approximately)
+INSERT INTO `booking` (`bookingId`, `flightId`, `clientId`) VALUES
+	(1, 13, 166);
 
 -- Dumping structure for table airline.client
 DROP TABLE IF EXISTS `client`;
 CREATE TABLE IF NOT EXISTS `client` (
-  `id` int(11) NOT NULL,
+  `clientId` int(11) NOT NULL,
   `name` varchar(50) DEFAULT NULL,
   `surname` varchar(50) DEFAULT NULL,
   `nationality` varchar(50) DEFAULT NULL,
   `passportId` varchar(50) DEFAULT NULL,
   `age` int(11) DEFAULT NULL,
   `luggage` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`clientId`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- Dumping data for table airline.client: ~3 rows (approximately)
-INSERT INTO `client` (`id`, `name`, `surname`, `nationality`, `passportId`, `age`, `luggage`) VALUES
+INSERT INTO `client` (`clientId`, `name`, `surname`, `nationality`, `passportId`, `age`, `luggage`) VALUES
 	(1, 'Andy', 'Marincas', 'romanian', '12345', 24, 1),
 	(2, 'Petros', 'Grivas', 'greek', '123456', 26, 0),
 	(3, 'Sean', 'Hallinan', 'irish', '4343412', 23, 1);
@@ -57,13 +57,13 @@ INSERT INTO `client` (`id`, `name`, `surname`, `nationality`, `passportId`, `age
 -- Dumping structure for table airline.company
 DROP TABLE IF EXISTS `company`;
 CREATE TABLE IF NOT EXISTS `company` (
-  `id` int(11) NOT NULL,
+  `companyId` int(11) NOT NULL,
   `name` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`companyId`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- Dumping data for table airline.company: ~3 rows (approximately)
-INSERT INTO `company` (`id`, `name`) VALUES
+INSERT INTO `company` (`companyId`, `name`) VALUES
 	(1, 'WizzAir'),
 	(2, 'AEGEAN'),
 	(3, 'Lufthansa');
@@ -71,7 +71,7 @@ INSERT INTO `company` (`id`, `name`) VALUES
 -- Dumping structure for table airline.flight
 DROP TABLE IF EXISTS `flight`;
 CREATE TABLE IF NOT EXISTS `flight` (
-  `id` int(11) NOT NULL,
+  `flightId` int(11) NOT NULL,
   `companyId` int(11) NOT NULL,
   `returning` tinyint(4) DEFAULT NULL,
   `origin` varchar(50) DEFAULT NULL,
@@ -81,13 +81,12 @@ CREATE TABLE IF NOT EXISTS `flight` (
   `duration` varchar(50) DEFAULT NULL,
   `layovers` int(11) DEFAULT NULL,
   `luggage` tinyint(4) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `FK__company` (`companyId`),
-  CONSTRAINT `FK__company` FOREIGN KEY (`companyId`) REFERENCES `company` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  PRIMARY KEY (`flightId`) USING BTREE,
+  KEY `FK__company` (`companyId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- Dumping data for table airline.flight: ~22 rows (approximately)
-INSERT INTO `flight` (`id`, `companyId`, `returning`, `origin`, `destination`, `price`, `date`, `duration`, `layovers`, `luggage`) VALUES
+INSERT INTO `flight` (`flightId`, `companyId`, `returning`, `origin`, `destination`, `price`, `date`, `duration`, `layovers`, `luggage`) VALUES
 	(0, 1, 1, 'Sevilla', 'Paris', '402', '17/10/2022', '2:30', 0, 1),
 	(1, 1, 1, 'London', 'Athens', '40', '15/10/2022', '2:30', 0, 1),
 	(2, 1, 1, 'Athens', 'London', '40', '16/10/2022', '2:30', 0, 1),

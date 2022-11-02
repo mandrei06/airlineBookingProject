@@ -3,14 +3,12 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 
+import com.airlineProject.airlineProject.model.Flight;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.util.Assert;
 
 import java.util.Date;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class FlightTest {
 Flight flight;

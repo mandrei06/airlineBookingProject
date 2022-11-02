@@ -1,4 +1,4 @@
-package com.airlineProject.airlineProject.models;
+package com.airlineProject.airlineProject.model;
 
 import jakarta.persistence.*;
 
