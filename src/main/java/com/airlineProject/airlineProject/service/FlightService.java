@@ -24,4 +24,7 @@ public class FlightService {
         return flightRepo.findByFlightOrigin(origin);
     }
 
+    public List<Flight> findAllFlights() {
+        return flightRepo.findAll();
+    }
 }

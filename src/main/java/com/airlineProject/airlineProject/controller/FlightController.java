@@ -3,7 +3,6 @@ package com.airlineProject.airlineProject.controller;
 import com.airlineProject.airlineProject.model.Flight;
 import com.airlineProject.airlineProject.service.FlightService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,7 +13,6 @@ public class FlightController {
     @Autowired
     FlightService flightService;
 
-
     @PostMapping("/")
     public Flight saveFlight(@RequestBody Flight flight){
         return flightService.saveFlight(flight);
@@ -23,10 +21,9 @@ public class FlightController {
     public Flight findFlightById(@PathVariable("id") Integer flightId){
         return flightService.findFlightById(flightId);
     }
-    @PostMapping
-    public List<Flight> returnAvailableFlight(@RequestBody String origin){
-        System.out.println(flightService.findFlightsByOrigin(origin));
-        return flightService.findFlightsByOrigin(origin);
+    @GetMapping("/all")
+    public List<Flight> findAllFlights(){
+        return flightService.findAllFlights();
     }
 
 
