@@ -27,4 +27,7 @@ public class FlightService {
     public List<Flight> findAllFlights() {
         return flightRepo.findAll();
     }
+    public Integer findOriginAndDestinationPrice(String origin, String destination){
+        return flightRepo.findPriceByOriginAndDestination(origin,destination);
+    }
 }

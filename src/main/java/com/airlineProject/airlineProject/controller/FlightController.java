@@ -26,5 +26,14 @@ public class FlightController {
         return flightService.findAllFlights();
     }
 
+    @GetMapping("/list/{origin}")
+    public List<Flight> returnAvailableFlight(@PathVariable("origin") String origin){
+        System.out.println(flightService.findFlightsByOrigin(origin));
+        return flightService.findFlightsByOrigin(origin);}
+
+    @GetMapping("/list/{origin}/{destination}")
+    public Integer returnFlightPrice(@PathVariable("origin")String origin, @PathVariable("destination")String destination){
+        return flightService.findOriginAndDestinationPrice(origin,destination);
+    }
 
 }
