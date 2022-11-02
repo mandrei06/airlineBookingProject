@@ -13,12 +13,16 @@ public class ClientController {
 
     @PostMapping("/")
     public Client saveClient(@RequestBody Client client){
-
         return clientService.saveClient(client);
     }
 
     @GetMapping("/{id}")
     public Client findClientById(@PathVariable("id") Integer clientId) {
         return clientService.findClientById(clientId);
+    }
+
+    @PostMapping("/clientConfirmation")
+    public Client clientConfirmationCredentials(@RequestBody Client client){
+        return clientService.clientBooking(client);
     }
 }
