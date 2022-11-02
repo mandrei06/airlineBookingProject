@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface FlightRepo extends JpaRepository<Flight,Integer> {
-    Flight findByFlightId(Integer id);
+    Flight findByFlightId(Integer flightId);
 
 }

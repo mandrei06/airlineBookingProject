@@ -14,8 +14,8 @@ public class FlightService {
         return flightRepo.save(flight);
     }
 
-   public Flight findFlightById(Integer id) {
-        return flightRepo.findByFlightId(id);
+   public Flight findFlightById(Integer flightId) {
+        return flightRepo.findByFlightId(flightId);
 
     }
 
