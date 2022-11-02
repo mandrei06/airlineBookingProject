@@ -30,7 +30,19 @@ public class FlightService {
     public Integer findOriginAndDestinationPrice(String origin, String destination){
         return flightRepo.findPriceByOriginAndDestination(origin,destination);
     }
-    public Integer priceWithLuggage(String origin, String destination,Integer luggageTrueOrFalse){
+    /*public Integer priceWithLuggage(String origin, String destination,Integer luggageTrueOrFalse){
         return (luggageTrueOrFalse==1)? flightRepo.findPriceByOriginAndDestination(origin,destination)+50:flightRepo.findPriceByOriginAndDestination(origin,destination) ;
+    }*/
+
+    public Integer priceWithLuggage(String origin){
+        return flightRepo.findPriceWithLuggageById(origin);
+    }
+
+    public Integer priceWithoutLuggage(String origin){
+        return flightRepo.findPriceWithLuggageById(origin);
+    }
+
+    public String destinationByOrigin(String origin){
+        return flightRepo.findDestinationByOrigin(origin);
     }
 }
