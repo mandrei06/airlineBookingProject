@@ -52,7 +52,6 @@ const PassengerInfo = () => {
                 </p>
                 <p>Yes  or  No</p>
                 <input type="radio" name="luggage" value="yes"></input>
-                
                 <input type="radio" name="luggage" value="no"></input>
                 <br></br>
               </div>
