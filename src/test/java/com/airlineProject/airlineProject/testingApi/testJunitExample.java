@@ -65,7 +65,7 @@ public class testJunitExample extends TestCase {
                  contentType(MediaType.APPLICATION_JSON)).
                  andExpect(status().isOk()).
                  andExpect(MockMvcResultMatchers.jsonPath("$",hasSize(2)))
-                 .andExpect((ResultMatcher) jsonPath("$[1].flightId", is(flights.get(1).getFlightId())));
+                 .andExpect((ResultMatcher) jsonPath("$[0].flightId", is(flights.get(0).getFlightId())));
       }
    }
 

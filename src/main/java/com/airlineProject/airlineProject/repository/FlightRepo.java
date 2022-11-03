@@ -17,7 +17,7 @@ public interface FlightRepo extends JpaRepository<Flight,Integer> {
     List<Flight> findByFlightOrigin(@Param("origin")String origin);
 
     @Query(value = "SELECT PRICE p FROM FLIGHT f WHERE f.origin=:origin AND f.destination=:destination",nativeQuery = true)
-    Integer findPriceByOriginAndDestination(@Param("origin")String origin, @Param("destination")String destination);
+    List<Integer> findPriceByOriginAndDestination(@Param("origin")String origin, @Param("destination")String destination);
 
     @Query(value = "SELECT PRICE p FROM FLIGHT f WHERE f.origin=:origin" ,nativeQuery = true)
     Integer findPriceWithLuggageById(@Param("origin")String origin);
