@@ -53,7 +53,7 @@ public class FlightController {
     }
 
     @GetMapping("/{origin}/destinations")
-    public String returnDestinationByOrigin(@PathVariable("origin")String origin){
+    public ArrayList<String> returnDestinationByOrigin(@PathVariable("origin")String origin){
         return flightService.destinationByOrigin(origin);
     }
 

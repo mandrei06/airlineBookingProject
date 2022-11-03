@@ -24,7 +24,7 @@ public interface FlightRepo extends JpaRepository<Flight,Integer> {
 
 
     @Query(value = "SELECT destination d FROM FLIGHT f WHERE f.origin =:origin",nativeQuery = true)
-    String findDestinationByOrigin(String origin);
+    ArrayList<String> findDestinationByOrigin(String origin);
 
     @Query(value = "SELECT date d FROM FLIGHT f WHERE f.origin =:origin AND f.destination =:destination",nativeQuery = true)
     ArrayList<String> findFlightDateByOriginAndDestination(String origin, String destination);
