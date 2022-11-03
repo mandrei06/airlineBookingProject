@@ -1,18 +1,13 @@
 import './App.css';
 import React from 'react';
 import FlightApp from './components/FlightApp';
+import PassengerInfo from './components/PassengerInfo'
 
 function App() {
   return (
     <React.Fragment>
       <FlightApp></FlightApp>
-        <div>
-          <label style={{backgroundColor: "lightblue"}}>
-             </label>
-             <input type="submit" 
-              value="FIND FLIGHTS!" 
-              style={{backgroundColor: "lightblue"}}/>
-        </div>
+        <PassengerInfo></PassengerInfo>
     </React.Fragment>
   );
 };
