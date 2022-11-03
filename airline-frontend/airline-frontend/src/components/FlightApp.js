@@ -7,7 +7,8 @@ export default class FlightApp extends React.Component {
     state = {
       flights: [],
       origins:[],
-      destinations: []
+      destinations: [],
+      dates: []
     }
   
     componentDidMount() {
@@ -20,6 +21,7 @@ export default class FlightApp extends React.Component {
   
      postOrigin(origin){
         console.log(origin);
+        window.origin=origin;
         
         axios.get(`http://localhost:8080/flights/`+origin+"/destinations")
         .then(res => {
@@ -29,15 +31,32 @@ export default class FlightApp extends React.Component {
         })
      }
      postDest(destination){
-        console.log(destination+this.setState.origin)
+        console.log(destination+window.origin);
+        window.destination=destination;
         
-        axios.get(`http://localhost:8080/flights/`+origin+"/destinations")
+        axios.get(`http://localhost:8080/flights/`+window.origin+'/'+destination)
         .then(res => {
-          const destinations = res.data;
-          this.setState({ destinations });
-          console.log(destinations);
+          const dates = res.data;
+          this.setState({ dates });
+          console.log(dates);
         })
      }
+     postDate(date){
+        console.log(window.destination+window.origin+date);
+        window.dateOfFlight=date;
+     }
+     displayReturningDates(){
+        console.log("display");
+        const box = document.getElementById('returnDates');
+        box.style.display = 'block';
+     }
+     hideReturningDates(){
+        console.log("hide");
+        const box = document.getElementById('returnDates');
+        box.style.display = 'none';
+     }
+     
+     
 
     render(){
     return (
@@ -58,21 +77,18 @@ export default class FlightApp extends React.Component {
                             <div className="Div1">
                                 <div className="flex items-center space-x-2" style={{felx: 1}} >
                                     <input
-                                    type="radio"
-                                    className="w-6 h-6"
+                                    type="radio" id="show"  value="show"
+                                    name="round" onChange={this.hideReturningDates}
+                                    ></input>
+                                    <p className="text-xl font-bold"  style={{felx: 0}}>One Way</p>
+                                    <input
+                                    type="radio" id="hide"  value="hide"  onChange={this.displayReturningDates}
                                     name="round"
                                     ></input>
                                     <p className="text-xl font-bold">Round Trip</p>
-                                    <input
-                                    type="radio"
-                                    className="w-6 h-6"
-                                    name="round"
-                                    ></input>
-                                    <p className="text-xl font-bold"  style={{felx: 0}}>One Way</p>
                                     <br></br>
                                 </div>
                             </div>
-                            <div>Error</div>
                         </div>
                         {/* Departure */}
                         <div>
@@ -110,7 +126,6 @@ export default class FlightApp extends React.Component {
                                     </select>
                                     <br></br>
                                 </div>
-                                <div>Error</div>
                             </div>
                         ---------------------------------------
                         </div>
@@ -120,21 +135,35 @@ export default class FlightApp extends React.Component {
                                 <div>
                                     <div>
                                         <b>Departure Available Dates</b>
-                                        <input type='date'/>
+                                        <select name="datesDropdown" onChange={(event) =>this.postDate(event.target.value) }>
+                                        <option>--Select Date--</option>
+                                        {   
+                                        this.state.dates
+                                        .map(date =>
+                                            <option key={date} value={date}>{date}</option>
+                                        )
+                                    }
+                                    </select>
                                     </div>
-                                    <div>Error</div>
                                 </div>
                             </div>
                         </div>
                         -----------------------------------------
                         <div>
-                            <div>
+                            <div id="returnDates">
                                 <div>
                                     <div>
-                                        <b>Return Date</b>
-                                        <input type='date'/>
+                                    <b>Returning Dates</b>
+                                        <select name="returnDatesDropdown">
+                                        <option>--Select Date--</option>
+                                        {   
+                                        this.state.dates
+                                        .map(date =>
+                                            <option key={date} value={date}>{date}</option>
+                                        )
+                                    }
+                                    </select>
                                     </div>
-                                    <div>Error</div>
                                 </div>
                             </div>
                         </div>
