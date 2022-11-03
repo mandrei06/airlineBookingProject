@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class ClientTest {
+/*class ClientTest {
     Client client;
     @BeforeEach
     void initializer(){
@@ -96,4 +96,4 @@ class ClientTest {
         Assertions.assertFalse(client.getLuggage());
     }
 
-}
+}*/
