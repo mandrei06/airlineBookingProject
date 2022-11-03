@@ -15,7 +15,10 @@ public class ClientService {
     }
 
     public Client findClientById(Integer clientId){
-
         return clientRepo.findByClientId(clientId);
+    }
+
+    public Client clientBooking(Client client){
+        return clientRepo.save(client);
     }
 }

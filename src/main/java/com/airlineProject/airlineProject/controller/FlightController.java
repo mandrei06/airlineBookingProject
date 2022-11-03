@@ -42,7 +42,7 @@ public class FlightController {
         return flightService.priceWithLuggage(origin,destination,0);
     }*/
 
-    @GetMapping("/{flightId}/priceWithLuggage")
+    @GetMapping("/{origin}/priceWithLuggage")
     public Integer returnPriceWithLuggage(@PathVariable("origin") String origin){
         return flightService.priceWithLuggage(origin)+30;
     }
@@ -55,6 +55,11 @@ public class FlightController {
     @GetMapping("/{origin}/destinations")
     public ArrayList<String> returnDestinationByOrigin(@PathVariable("origin")String origin){
         return flightService.destinationByOrigin(origin);
+    }
+
+    @GetMapping("/{origin}/{destination}")
+    public ArrayList<String> returnDateByOriginAndDestination(@PathVariable("origin") String origin, @PathVariable("destination")String destination){
+        return flightService.dateByOriginAndDestination(origin, destination);
     }
 
 }
