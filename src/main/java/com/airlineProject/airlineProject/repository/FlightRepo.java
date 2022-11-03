@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Repository
@@ -26,5 +27,5 @@ public interface FlightRepo extends JpaRepository<Flight,Integer> {
     String findDestinationByOrigin(String origin);
 
     @Query(value = "SELECT date d FROM FLIGHT f WHERE f.origin =:origin AND f.destination =:destination",nativeQuery = true)
-    String findFlightDateByOriginAndDestination(String origin, String destination);
+    ArrayList<String> findFlightDateByOriginAndDestination(String origin, String destination);
 }

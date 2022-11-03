@@ -6,6 +6,7 @@ import com.airlineProject.airlineProject.repository.FlightRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -46,7 +47,7 @@ public class FlightService {
         return flightRepo.findDestinationByOrigin(origin);
     }
 
-    public String dateByOriginAndDestination(String origin, String destination){
+    public ArrayList<String> dateByOriginAndDestination(String origin, String destination){
         return flightRepo.findFlightDateByOriginAndDestination(origin,destination);
     }
 }
