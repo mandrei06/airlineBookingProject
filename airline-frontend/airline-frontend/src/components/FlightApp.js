@@ -68,12 +68,12 @@ export default class FlightApp extends React.Component {
                 <header className="headDiv" >
                     {/* Header Section */}
                     <div className="h-24 flex justify-center items-center shadow" style={{height: 24}}>
-                        <h1 className="uppercase font-bold text-4xl text-center" style={{backgroundColor: "gray"}}>Flight booking app</h1>
+                        <h1 className="uppercase font-bold text-4xl text-center" style={{backgroundColor: "deepskyblue"}}>Flight booking app</h1>
                     </div>
                 </header>
                 <br></br> 
                 {/* body Section */}
-                <div style={{backgroundColor: "lightgray", textAlign: "center"}}>
+                <div style={{backgroundColor: "lightblue", textAlign: "center"}}>
                     <div>
                         <div>
                             <div className="Div1">
@@ -92,6 +92,7 @@ export default class FlightApp extends React.Component {
                                 </div>
                             </div>
                         </div>
+                        <hr/>
                         {/* Departure */}
                         <div>
                             <div>
@@ -129,7 +130,6 @@ export default class FlightApp extends React.Component {
                                     <br></br>
                                 </div>
                             </div>
-                        ---------------------------------------
                         </div>
                         {/**date selection */}
                         <div>
@@ -150,7 +150,7 @@ export default class FlightApp extends React.Component {
                                 </div>
                             </div>
                         </div>
-                        -----------------------------------------
+                            <hr/>
                         <div>
                             <div id="returnDates">
                                 <div>
@@ -199,6 +199,7 @@ export default class FlightApp extends React.Component {
                                 </div>
                             </div>
                         </div>
+                        <input type="submit" value="FindFlights" style={{backgroundColor: "limegreen"}} />
                     </div>
                 </div>
             </form>
