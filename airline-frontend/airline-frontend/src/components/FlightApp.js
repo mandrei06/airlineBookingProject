@@ -3,9 +3,11 @@ import './FlightApp.css';
 import axios from 'axios';
 
 
-export default class FlightList extends React.Component {
+export default class FlightApp extends React.Component {
     state = {
-      flights: []
+      flights: [],
+      origins:[],
+      destinations: []
     }
   
     componentDidMount() {
@@ -13,10 +15,30 @@ export default class FlightList extends React.Component {
         .then(res => {
           const flights = res.data;
           this.setState({ flights });
-          console.log(flights);
         })
     }
   
+     postOrigin(origin){
+        console.log(origin);
+        
+        axios.get(`http://localhost:8080/flights/`+origin+"/destinations")
+        .then(res => {
+          const destinations = res.data;
+          this.setState({ destinations });
+          console.log(destinations);
+        })
+     }
+     postDest(destination){
+        console.log(destination+this.setState.origin)
+        
+        axios.get(`http://localhost:8080/flights/`+origin+"/destinations")
+        .then(res => {
+          const destinations = res.data;
+          this.setState({ destinations });
+          console.log(destinations);
+        })
+     }
+
     render(){
     return (
     <React.Fragment>
@@ -38,11 +60,13 @@ export default class FlightList extends React.Component {
                                     <input
                                     type="radio"
                                     className="w-6 h-6"
+                                    name="round"
                                     ></input>
                                     <p className="text-xl font-bold">Round Trip</p>
                                     <input
                                     type="radio"
                                     className="w-6 h-6"
+                                    name="round"
                                     ></input>
                                     <p className="text-xl font-bold"  style={{felx: 0}}>One Way</p>
                                     <br></br>
@@ -55,13 +79,16 @@ export default class FlightList extends React.Component {
                             <div>
                                 <div>
                                     <b >Flying From?</b>
-                                    <select options={
+                                    <select name="originsDropdown" onChange={(event) =>this.postOrigin(event.target.value) }>
+                                    <option>"Please select an origin"</option>
+                                    {   
                                         this.state.flights
                                         .map(flight =>
-                                            <li key={flight.id}>{flight.origin}</li>
+                                            <option key={flight.flightId} value={flight.origin}>{flight.origin}</option>
                                         )
                                     
-                                    }></select>
+                                    }
+                                    </select>
                                     <br></br>
                                     <br></br>
                                 </div>
@@ -72,8 +99,14 @@ export default class FlightList extends React.Component {
                             <div>
                                 <div>
                                     <b >Flying To?</b>
-                                    <select>
-                                        <option>--Select Airtport--</option>
+                                    <select name="destinationsDropdown" onChange={(event) =>this.postDest(event.target.value) }>
+                                        <option>--Select Destination--</option>
+                                        {   
+                                        this.state.destinations
+                                        .map(destination =>
+                                            <option key={destination} value={destination}>{destination}</option>
+                                        )
+                                    }
                                     </select>
                                     <br></br>
                                 </div>
@@ -86,7 +119,7 @@ export default class FlightList extends React.Component {
                             <div>
                                 <div>
                                     <div>
-                                        <b>Departure Date</b>
+                                        <b>Departure Available Dates</b>
                                         <input type='date'/>
                                     </div>
                                     <div>Error</div>
@@ -142,6 +175,5 @@ export default class FlightList extends React.Component {
     </React.Fragment>
     );
 };
-
 
 }
