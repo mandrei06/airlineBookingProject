@@ -1,11 +1,11 @@
 package com.airlineProject.airlineProject.service;
 
 import com.airlineProject.airlineProject.model.Flight;
-import com.airlineProject.airlineProject.repository.BookingRepo;
 import com.airlineProject.airlineProject.repository.FlightRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -42,7 +42,7 @@ public class FlightService {
         return flightRepo.findPriceWithLuggageById(origin);
     }
 
-    public String destinationByOrigin(String origin){
+    public ArrayList<String> destinationByOrigin(String origin){
         return flightRepo.findDestinationByOrigin(origin);
     }
 }

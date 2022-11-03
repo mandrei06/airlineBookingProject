@@ -5,6 +5,7 @@ import com.airlineProject.airlineProject.service.FlightService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -52,7 +53,7 @@ public class FlightController {
     }
 
     @GetMapping("/{origin}/destinations")
-    public String returnDestinationByOrigin(@PathVariable("origin")String origin){
+    public ArrayList<String> returnDestinationByOrigin(@PathVariable("origin")String origin){
         return flightService.destinationByOrigin(origin);
     }
 
