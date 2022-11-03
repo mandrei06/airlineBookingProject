@@ -56,4 +56,9 @@ public class FlightController {
         return flightService.destinationByOrigin(origin);
     }
 
+    @GetMapping("/{origin}/{destination}")
+    public String returnDateByOriginAndDestination(@PathVariable("origin") String origin, @PathVariable("destination")String destination){
+        return flightService.dateByOriginAndDestination(origin, destination);
+    }
+
 }
