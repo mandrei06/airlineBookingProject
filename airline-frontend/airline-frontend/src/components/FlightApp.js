@@ -1,6 +1,7 @@
 import React from "react";
 import "./FlightApp.css";
 import axios from "axios";
+import { Link, redirect, useNavigate } from "react-router-dom";
 
 export default class FlightApp extends React.Component {
   state = {
@@ -46,7 +47,7 @@ export default class FlightApp extends React.Component {
         console.log(dates);
       });
   }
-  postForm() {
+  postForm = () => {
     const clientCode = Math.floor(Math.random() * 1000);
     const bookingCode = Math.floor(Math.random() * 1000);
     const flightCode = window.originId*1;
@@ -62,7 +63,8 @@ export default class FlightApp extends React.Component {
     .then(response => console.log(response));
 
     window.alert(JSON.stringify(booking));
-    window.location.replace("http://www.w3schools.com");
+    const navigate = useNavigate();
+    navigate('/passenger');
   }
 
   postDate(date) {
@@ -255,9 +257,13 @@ export default class FlightApp extends React.Component {
                   </div>
                 </div>
                 <button type="submit" onClick={this.postForm}>
-                  Submit
+                <Link to="/passenger"></Link>
+                <Link to="/passenger">Find Flights</Link>
                 </button>
               </div>
+              <br></br>
+              <div>
+                </div>
             </div>
           </form>
         </section>
