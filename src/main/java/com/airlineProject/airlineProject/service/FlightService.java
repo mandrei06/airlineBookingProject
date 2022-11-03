@@ -45,4 +45,8 @@ public class FlightService {
     public ArrayList<String> destinationByOrigin(String origin){
         return flightRepo.findDestinationByOrigin(origin);
     }
+
+    public ArrayList<String> dateByOriginAndDestination(String origin, String destination){
+        return flightRepo.findFlightDateByOriginAndDestination(origin,destination);
+    }
 }

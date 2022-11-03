@@ -9,7 +9,7 @@ class BookingTest {
     Booking booking;
 
     @BeforeEach
-    public void initionalizor(){
+    public void initializer(){
         booking = new Booking();
         booking.setBookingId(1);
         booking.setClientId(2);
