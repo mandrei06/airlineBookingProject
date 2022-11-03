@@ -20,8 +20,10 @@ export default class FlightApp extends React.Component {
     }
   
      postOrigin(origin){
-        console.log(origin);
-        window.origin=origin;
+        var originId=""+origin;
+        window.originId=originId.split(":")[1];
+        window.origin=originId.split(":")[0];
+        origin=originId.split(":")[0];
         
         axios.get(`http://localhost:8080/flights/`+origin+"/destinations")
         .then(res => {
@@ -100,7 +102,7 @@ export default class FlightApp extends React.Component {
                                     {   
                                         this.state.flights
                                         .map(flight =>
-                                            <option key={flight.flightId} value={flight.origin}>{flight.origin}</option>
+                                            <option key={flight.flightId} value={flight.origin+":"+flight.flightId}>{flight.origin}</option>
                                         )
                                     
                                     }
