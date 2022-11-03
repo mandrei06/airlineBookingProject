@@ -3,9 +3,7 @@ import React from "react";
 import FlightApp from "./components/FlightApp";
 import PassengerInfo from "./components/PassengerInfo";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Navbar from "react-bootstrap/Navbar";
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
+import ConformationPage from "./components/ConformationPage"
 
 import {
   BrowserRouter as Router,
@@ -25,6 +23,8 @@ function App() {
             element={<PassengerInfo></PassengerInfo>}></Route>
            <Route path="/" 
             element={<FlightApp></FlightApp>}></Route>
+            <Route path="conformation" 
+            element={<ConformationPage></ConformationPage>}></Route>
           </Routes>
         </BrowserRouter>
     </React.Fragment>

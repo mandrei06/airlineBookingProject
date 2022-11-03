@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const PassengerInfo = () => {
   return (
@@ -55,9 +56,11 @@ const PassengerInfo = () => {
                 <input type="radio" name="luggage" value="no"></input>
                 <br></br>
               </div>
+          <button type="submit">
+                <Link to="/conformation">Confrim Flights</Link>
+                </button>
             </div>
           </div>
-          <hr />
         </form>
       </section>
     </React.Fragment>

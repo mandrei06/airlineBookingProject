@@ -257,7 +257,6 @@ export default class FlightApp extends React.Component {
                   </div>
                 </div>
                 <button type="submit" onClick={this.postForm}>
-                <Link to="/passenger"></Link>
                 <Link to="/passenger">Find Flights</Link>
                 </button>
               </div>
