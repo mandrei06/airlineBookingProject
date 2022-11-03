@@ -49,20 +49,20 @@ export default class FlightApp extends React.Component {
   postForm() {
     const clientCode = Math.floor(Math.random() * 1000);
     const bookingCode = Math.floor(Math.random() * 1000);
-    const flightCode = window.originId;
+    const flightCode = window.originId*1;
     
     const booking = {
       bookingId: bookingCode,
       flightId: flightCode,
-      ClientId: clientCode
+      clientId: clientCode
     };
 
-    window.alert(booking.data)
+    
+    axios.post('http://localhost:8080/bookings/', booking)
+    .then(response => console.log(response));
 
-    axios.post("http://localhost:8080/bookings/", { booking }).then((res) => {
-      console.log(res);
-      console.log(res.data);
-    });
+    window.alert(JSON.stringify(booking));
+    window.location.replace("http://www.w3schools.com");
   }
 
   postDate(date) {
