@@ -14,11 +14,6 @@ export default class PassengerInfo extends React.Component {
     console.log(event.target.Age.value);
     console.log(event.target.luggage.value);
     const clientSessionId=ReactSession.get("userId");
-    
-    ReactSession.set("userName", event.target.firstName.value+" "+event.target.lastName.value);
-    ReactSession.set("luggage", event.target.luggage.value?"Yes":"No");
-
-
     console.log(clientSessionId);
     const client={
       clientId:clientSessionId,
@@ -92,23 +87,19 @@ export default class PassengerInfo extends React.Component {
                 </div>
                 <div>
                   <p className="text-xl font-bold" style={{ felx: 0 }}>
-                    Will this Passenger have Carry on Luggage for extra 30$?
+                    Will this Passenger have Carry on Luggage?
                   </p>
-                  <label htmlFor="luggageYes" style={{ backgroundColor: "lightpink" }}>Yes, I will have luggage</label>
-                  <input type="radio" id="luggageYes" name="luggage" value="true"></input>
-                  <br/>
-                  <label htmlFor="luggageNot" style={{ backgroundColor: "lightpink" }}>No, I will not have luggage</label>
-                  <input type="radio" id="luggageNot" name="luggage" value="false"></input>
+                  <p>Yes  or  No</p>
+                  <input type="radio" name="luggage" value="true"></input>
+                  <input type="radio" name="luggage" value="false"></input>
                   <br></br>
                 </div>
                 <div>
-                  <button type="submit">Save Infos
+                  <button type="submit">
+                    <Link to="/conformation">Confrim Flights</Link>
                   </button>
                 </div>
               </div>
-          <button type="submit">
-                <Link to="/conformation">Confrim Flights</Link>
-                </button>
             </div>
         </form>
       </section>

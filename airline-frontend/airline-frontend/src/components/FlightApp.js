@@ -181,6 +181,7 @@ export default class FlightApp extends React.Component {
                         name="destinationsDropdown"
                         onChange={(event) => this.postDest(event.target.value)}
                       >
+                        <br></br>
                         <option>--Select Destination--</option>
                         {this.state.destinations.map((destination) => (
                           <option key={destination} value={destination}>
@@ -215,7 +216,6 @@ export default class FlightApp extends React.Component {
                     </div>
                   </div>
                 </div>
-                <hr />
                 <div>
                   <div id="returnDates">
                     <div>
@@ -233,6 +233,7 @@ export default class FlightApp extends React.Component {
                     </div>
                   </div>
                 </div>
+                <hr />
                 <div>
                   <div>
                     <div>
@@ -263,8 +264,9 @@ export default class FlightApp extends React.Component {
                     </div>
                   </div>
                 </div>
-                <button type="submit" onClick={this.postForm}>Save Infos</button>
-                <Link to="/passenger">See the Reservation Details</Link>
+                <button id="saveInfo" type="submit" onClick={this.postForm}>
+                <Link to="/passenger">Save Infos</Link>
+                </button>
               </div>
               <br></br>
               <div>
