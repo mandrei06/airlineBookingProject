@@ -1,7 +1,7 @@
 import React from "react";
 import "./FlightApp.css";
 import axios from "axios";
-import { Link, redirect, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ReactSession } from 'react-client-session';
 
 export default class FlightApp extends React.Component {
@@ -27,7 +27,11 @@ export default class FlightApp extends React.Component {
     window.originId = originId.split(":")[1];
     window.origin = originId.split(":")[0];
     origin = originId.split(":")[0];
-
+    const flightDate=originId.split(":")[2];
+    const flightPrice=originId.split(":")[3];
+    ReactSession.set("flightOrigin", origin);
+    ReactSession.set("flightDate", flightDate);
+    ReactSession.set("flightPrice", flightPrice);
     axios
       .get(`http://localhost:8080/flights/` + origin + "/destinations")
       .then((res) => {
@@ -39,6 +43,7 @@ export default class FlightApp extends React.Component {
   postDest(destination) {
     console.log(destination + window.origin);
     window.destination = destination;
+    ReactSession.set("flightDestination", destination);
 
     axios
       .get(`http://localhost:8080/flights/` + window.origin + "/" + destination)
@@ -53,6 +58,7 @@ export default class FlightApp extends React.Component {
     const bookingCode = Math.floor(Math.random() * 1000);
     const flightCode = window.originId*1;
     ReactSession.set("userId", clientCode);
+    ReactSession.set("flightId", flightCode);
     const booking = {
       bookingId: bookingCode,
       flightId: flightCode,
@@ -155,7 +161,7 @@ export default class FlightApp extends React.Component {
                         {this.state.flights.map((flight) => (
                           <option
                             key={flight.flightId}
-                            value={flight.origin + ":" + flight.flightId}
+                            value={flight.origin + ":" + flight.flightId+":"+flight.date+":"+flight.price}
                           >
                             {flight.origin}
                           </option>
@@ -232,7 +238,7 @@ export default class FlightApp extends React.Component {
                     <div>
                       <div>
                         <b>Number of Passengers Older than 9</b>
-                        <input type="number" max={10} min={0} />
+                        <input id="olderThan9" type="number" max={10} min={0} />
                       </div>
                     </div>
                   </div>
@@ -242,7 +248,7 @@ export default class FlightApp extends React.Component {
                     <div>
                       <div>
                         <b>Number of Passengers between 9 and 2</b>
-                        <input type="number" max={10} min={0} />
+                        <input id="between9And2" type="number" max={10} min={0} />
                       </div>
                     </div>
                   </div>
@@ -252,7 +258,7 @@ export default class FlightApp extends React.Component {
                     <div>
                       <div>
                         <b>Number of Passengers younger than 10</b>
-                        <input type="number" max={10} min={0} />
+                        <input id="youngerThan2" type="number" max={10} min={0} />
                       </div>
                     </div>
                   </div>
