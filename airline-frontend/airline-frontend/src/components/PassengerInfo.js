@@ -50,35 +50,35 @@ export default class PassengerInfo extends React.Component {
                   <p className="text-xl font-bold" style={{ felx: 0 }}>
                     First Name:
                   </p>
-                  <input type="text" name="firstName" required></input>
+                  <input id = "fistName" type="text" name="firstName" required></input>
                   <br></br>
                 </div>
                 <div>
                   <p className="text-xl font-bold" style={{ felx: 0 }}>
                     Last Name:
                   </p>
-                  <input type="text" name="lastName" required></input>
+                  <input id = "lastName" type="text" name="lastName" required></input>
                   <br></br>
                 </div>
                 <div>
                   <p className="text-xl font-bold" style={{ felx: 0 }}>
                     Nationality:
                   </p>
-                  <input type="text" name="nationality" required></input>
+                  <input id = "nationality" type="text" name="nationality" required></input>
                   <br></br>
                 </div>
                 <div>
                   <p className="text-xl font-bold" style={{ felx: 0 }}>
                     Passport Number/ NIF:
                   </p>
-                  <input type="text" name="NIF" required></input>
+                  <input id = "NIF" type="text" name="NIF" required></input>
                   <br></br>
                 </div>
                 <div>
                   <p className="text-xl font-bold" style={{ felx: 0 }}>
                     Age:
                   </p>
-                  <input type="text" name="Age" required></input>
+                  <input id = "age" type="text" name="Age" required></input>
                   <br></br>
                 </div>
                 <div>
@@ -86,12 +86,12 @@ export default class PassengerInfo extends React.Component {
                     Will this Passenger have Carry on Luggage?
                   </p>
                   <p>Yes  or  No</p>
-                  <input type="radio" name="luggage" value="true"></input>
-                  <input type="radio" name="luggage" value="false"></input>
+                  <input id = "yesLuggage" type="radio" name="luggage" value="true"></input>
+                  <input id = "noLuggage" type="radio" name="luggage" value="false"></input>
                   <br></br>
                 </div>
                 <div>
-                  <button type="submit">
+                  <button id = "submit" type="submit">
                     <Link to="/conformation">Confrim Flights</Link>
                   </button>
                 </div>
