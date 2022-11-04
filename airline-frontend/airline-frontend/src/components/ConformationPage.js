@@ -16,7 +16,7 @@ function ConformationPage() {
           <header className="headDiv">
             {/* Header Section */}
             <div>
-              <h1 style={{ backgroundColor: "green" }}>Conformation</h1>
+              <h1 style={{ backgroundColor: "green" }}>Confirmation</h1>
             </div>
           </header>
           <div style={{ backgroundColor: "lightgreen", textAlign: "center" }}>
