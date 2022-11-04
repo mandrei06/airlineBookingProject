@@ -26,10 +26,6 @@ export default class PassengerInfo extends React.Component {
     };
     axios.post('http://localhost:8080/clients/', client)
     .then(response => console.log(response));
-
-    window.alert(JSON.stringify(client));
-    // const navigate = useNavigate();
-    // navigate('/passenger');
   }
 
   render() {
