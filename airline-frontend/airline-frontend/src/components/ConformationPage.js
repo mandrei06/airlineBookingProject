@@ -1,5 +1,6 @@
 import React from "react";
 import { ReactSession }  from 'react-client-session';
+import { Link } from "react-router-dom";
 
 
 function ConformationPage() {
@@ -35,9 +36,12 @@ function ConformationPage() {
               <label style={{ backgroundColor: "lightgreen" }}>Flight Date: {ReactSession.get("flightDate")}</label>
               <br></br>
               <label style={{ backgroundColor: "lightgreen" }}>Price: {ReactSession.get("flightPrice")}</label>
-
-
             </div>
+            <div>
+                  <button type="submit">
+                    <Link to="/">Book another flight?</Link>
+                  </button>
+                </div>
           </div>
         </form>
       </section>
