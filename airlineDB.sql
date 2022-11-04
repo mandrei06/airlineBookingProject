@@ -25,15 +25,27 @@ DROP TABLE IF EXISTS `booking`;
 CREATE TABLE IF NOT EXISTS `booking` (
   `bookingId` int(11) NOT NULL,
   `flightId` int(11) NOT NULL,
-  `clientId` int(11) NOT NULL,
-  PRIMARY KEY (`bookingId`) USING BTREE,
-  KEY `FK__flight` (`flightId`),
-  KEY `FK_booking_client` (`clientId`)
+  `clientId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table airline.booking: ~1 rows (approximately)
+-- Dumping data for table airline.booking: ~13 rows (approximately)
 INSERT INTO `booking` (`bookingId`, `flightId`, `clientId`) VALUES
-	(1, 13, 166);
+	(1, 1, 1),
+	(822, 0, 59),
+	(128, 0, 751),
+	(624, 0, 9),
+	(430, 1, 517),
+	(759, 0, 803),
+	(528, 0, 545),
+	(846, 0, 188),
+	(27, 1, 456),
+	(314, 0, 82),
+	(837, 0, 493),
+	(820, 0, 396),
+	(689, 0, 129),
+	(481, 2, 245),
+	(432, 2, 971),
+	(30, 2, 967);
 
 -- Dumping structure for table airline.client
 DROP TABLE IF EXISTS `client`;
@@ -48,11 +60,15 @@ CREATE TABLE IF NOT EXISTS `client` (
   PRIMARY KEY (`clientId`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table airline.client: ~3 rows (approximately)
+-- Dumping data for table airline.client: ~5 rows (approximately)
 INSERT INTO `client` (`clientId`, `name`, `surname`, `nationality`, `passportId`, `age`, `luggage`) VALUES
 	(1, 'Andy', 'Marincas', 'romanian', '12345', 24, 1),
 	(2, 'Petros', 'Grivas', 'greek', '123456', 26, 0),
-	(3, 'Sean', 'Hallinan', 'irish', '4343412', 23, 1);
+	(3, 'Sean', 'Hallinan', 'irish', '4343412', 23, 1),
+	(129, 'Andy', 'B', 'ro', '24', 24, 1),
+	(396, 'a', 's', 'f', 'e', 2, NULL),
+	(493, 'al', 'n', 'ro', '43', 43, 1),
+	(967, 'Sean', '', '', '', NULL, NULL);
 
 -- Dumping structure for table airline.company
 DROP TABLE IF EXISTS `company`;
@@ -85,7 +101,7 @@ CREATE TABLE IF NOT EXISTS `flight` (
   KEY `FK__company` (`companyId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table airline.flight: ~22 rows (approximately)
+-- Dumping data for table airline.flight: ~28 rows (approximately)
 INSERT INTO `flight` (`flightId`, `companyId`, `returning`, `origin`, `destination`, `price`, `date`, `duration`, `layovers`, `luggage`) VALUES
 	(0, 1, 1, 'Sevilla', 'Paris', '402', '17/10/2022', '2:30', 0, 1),
 	(1, 1, 1, 'London', 'Athens', '40', '15/10/2022', '2:30', 0, 1),
@@ -108,7 +124,13 @@ INSERT INTO `flight` (`flightId`, `companyId`, `returning`, `origin`, `destinati
 	(18, 1, 1, 'Belfast', 'Moscow', '88', '3/11/2022', '5:00', 1, 1),
 	(19, 1, 1, 'Moscow', 'Belfast', '88', '4/11/2022', '5:00', 1, 1),
 	(20, 1, 1, 'Stolkholm', 'Minsk', '77', '6/11/2022', '5:30', 0, 1),
-	(21, 1, 1, 'Minsk', 'Stolkholm', '77', '5/11/2022', '5:30', 0, 1);
+	(21, 1, 1, 'Minsk', 'Stolkholm', '77', '5/11/2022', '5:30', 0, 1),
+	(33, 1, 1, 'Sevilla', 'Bucharest', '402', '17/10/2022', '2:30', 0, 1),
+	(34, 1, 1, 'Bucharest', 'Romania', '402', '17/10/2022', '2:30', 0, 1),
+	(50, 1, 1, 'Sevilla', 'Paris', '402', '18/10/2022', '2:30', 0, 1),
+	(51, 1, 1, 'Sevilla', 'Paris', '402', '19/10/2022', '2:30', 0, 1),
+	(52, 1, 1, 'Sevilla', 'Paris', '402', '29/10/2022', '2:30', 0, 1),
+	(53, 1, 1, 'Sevilla', 'Paris', '402', '30/10/2022', '2:30', 0, 1);
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
