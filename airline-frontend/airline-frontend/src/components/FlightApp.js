@@ -51,14 +51,14 @@ export default class FlightApp extends React.Component {
     const clientCode = Math.floor(Math.random() * 1000);
     const bookingCode = Math.floor(Math.random() * 1000);
     const flightCode = window.originId*1;
-    
+
     const booking = {
       bookingId: bookingCode,
       flightId: flightCode,
       clientId: clientCode
     };
 
-    
+
     axios.post('http://localhost:8080/bookings/', booking)
     .then(response => console.log(response));
 

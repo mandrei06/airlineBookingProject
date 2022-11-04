@@ -5,6 +5,8 @@ import PassengerInfo from "./components/PassengerInfo";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ConformationPage from "./components/ConformationPage"
 
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
 import {
   BrowserRouter as Router,
   Switch,
@@ -17,6 +19,9 @@ import {
 function App() {
   return (
     <React.Fragment>
+      <Popup trigger={<button> Trigger</button>} position="right center">
+    <div>Popup content here !!</div>
+  </Popup>
         <BrowserRouter>
           <Routes>
             <Route path="passenger" 
