@@ -33,24 +33,19 @@ public class FlightController {
         return flightService.findFlightsByOrigin(origin);}
 
     @GetMapping("/list/{origin}/{destination}/price")
-    public Integer returnFlightPrice(@PathVariable("origin")String origin, @PathVariable("destination")String destination){
+    public List<Integer> returnFlightPrice(@PathVariable("origin")String origin, @PathVariable("destination")String destination){
         return flightService.findOriginAndDestinationPrice(origin,destination);
     }
 
-   /* @GetMapping("/list/{origin}/{destination}/price/luggage")
-    public Integer returnPriceWithLuggageOrNot(@PathVariable String origin, @PathVariable String destination,Integer luggageTrueOrFalse){
-        return flightService.priceWithLuggage(origin,destination,0);
-    }*/
-
-    @GetMapping("/{origin}/priceWithLuggage")
+    /*@GetMapping("/{origin}/priceWithLuggage")
     public Integer returnPriceWithLuggage(@PathVariable("origin") String origin){
         return flightService.priceWithLuggage(origin)+30;
-    }
+    }*/
 
-    @GetMapping("/{origin}/priceWithoutLuggage")
+    /*@GetMapping("/{origin}/priceWithoutLuggage")
     public Integer returnPriceWithoutLuggage(@PathVariable("origin")String origin){
         return flightService.priceWithoutLuggage(origin);
-    }
+    }*/
 
     @GetMapping("/{origin}/destinations")
     public ArrayList<String> returnDestinationByOrigin(@PathVariable("origin")String origin){

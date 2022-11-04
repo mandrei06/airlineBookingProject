@@ -38,7 +38,7 @@ function ConformationPage() {
               <label style={{ backgroundColor: "lightgreen" }}>Price: {ReactSession.get("flightPrice")}</label>
             </div>
             <div>
-                  <button type="submit">
+                  <button id = "bookAnother" type="submit">
                     <Link to="/">Book another flight?</Link>
                   </button>
                 </div>

@@ -20,7 +20,7 @@ function App() {
           <Routes>
             <Route path="passenger" 
             element={<PassengerInfo></PassengerInfo>}></Route>
-           <Route path="/flightapp" 
+           <Route path="/" 
             element={<FlightApp></FlightApp>}></Route>
             <Route path="conformation" 
             element={<ConformationPage></ConformationPage>}></Route>

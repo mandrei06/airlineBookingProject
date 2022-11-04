@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Date;
 
-class FlightTest {
+/*class FlightTest {
 Flight flight;
 Date date1;
 Duration duration;
@@ -139,4 +139,4 @@ Duration duration;
         flight.setLayovers(0);
         Assertions.assertEquals(0,flight.getLayovers());
     }
-}
+}*/

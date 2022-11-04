@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class CompanyTest {
+/*class CompanyTest {
 
     Company company;
 
@@ -42,4 +42,4 @@ class CompanyTest {
     @Test
     void testToString() {
     }
-}
+}*/
