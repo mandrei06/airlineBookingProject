@@ -3,9 +3,7 @@ import React from "react";
 import FlightApp from "./components/FlightApp";
 import PassengerInfo from "./components/PassengerInfo";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Navbar from "react-bootstrap/Navbar";
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
+import { ReactSession }  from 'react-client-session';
 
 import {
   BrowserRouter as Router,
@@ -17,6 +15,7 @@ import {
 } from "react-router-dom";
 
 function App() {
+  ReactSession.setStoreType("localStorage");
   return (
     <React.Fragment>
         <BrowserRouter>
