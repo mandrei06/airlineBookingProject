@@ -1,3 +1,4 @@
+Made by: Andrei Marincas, Sean Hallinan, Petros Grivas.
 Goal
 
 Create an application for searching and booking airline tickets.
