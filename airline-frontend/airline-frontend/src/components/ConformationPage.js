@@ -18,16 +18,23 @@ function ConformationPage() {
           </header>
           <div style={{ backgroundColor: "lightgreen", textAlign: "center" }}>
             <div className="Div1">
-              <label  style={{ backgroundColor: "lightgreen"}}>
-                Passenger Name:<br/>
-                Passenger ID: <br></br>
-                Flight ID: <br></br>
-                Carry on Luggage: <br></br>
-                Flight From: <br></br>
-                Flight to: <br></br>
-                Flight Date: <br></br>
-                Price: <br></br>
-              </label>
+              <label style={{ backgroundColor: "lightgreen" }}>Passenger Name:<br /></label>
+              <br></br>
+              <label style={{ backgroundColor: "lightgreen" }} >Passenger ID: </label>
+              <br></br>
+              <label style={{ backgroundColor: "lightgreen" }}>Flight ID:</label>
+              <br></br>
+              <label style={{ backgroundColor: "lightgreen" }}>Carry on Luggage: </label>
+              <br></br>
+              <label style={{ backgroundColor: "lightgreen" }}>Flight From: </label>
+              <br></br>
+              <label style={{ backgroundColor: "lightgreen" }}>Flight to: </label>
+              <br></br>
+              <label style={{ backgroundColor: "lightgreen" }}>Flight Date: </label>
+              <br></br>
+              <label style={{ backgroundColor: "lightgreen" }}>Price: </label>
+
+
             </div>
           </div>
         </form>
