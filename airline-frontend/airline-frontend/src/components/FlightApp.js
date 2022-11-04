@@ -2,6 +2,7 @@ import React from "react";
 import "./FlightApp.css";
 import axios from "axios";
 import { Link, redirect, useNavigate } from "react-router-dom";
+import { ReactSession } from 'react-client-session';
 
 export default class FlightApp extends React.Component {
   state = {
@@ -51,7 +52,7 @@ export default class FlightApp extends React.Component {
     const clientCode = Math.floor(Math.random() * 1000);
     const bookingCode = Math.floor(Math.random() * 1000);
     const flightCode = window.originId*1;
-
+    ReactSession.set("userId", clientCode);
     const booking = {
       bookingId: bookingCode,
       flightId: flightCode,
@@ -256,9 +257,8 @@ export default class FlightApp extends React.Component {
                     </div>
                   </div>
                 </div>
-                <button type="submit" onClick={this.postForm}>
-                <Link to="/passenger">Find Flights</Link>
-                </button>
+                <button type="submit" onClick={this.postForm}>Save Infos</button>
+                <Link to="/passenger">See the Reservation Details</Link>
               </div>
               <br></br>
               <div>

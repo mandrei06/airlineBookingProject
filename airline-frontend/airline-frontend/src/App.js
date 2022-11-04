@@ -4,7 +4,7 @@ import FlightApp from "./components/FlightApp";
 import PassengerInfo from "./components/PassengerInfo";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ConformationPage from "./components/ConformationPage"
-
+import { ReactSession }  from 'react-client-session';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import {
@@ -17,6 +17,7 @@ import {
 } from "react-router-dom";
 
 function App() {
+  ReactSession.setStoreType("localStorage");
   return (
     <React.Fragment>
       <Popup trigger={<button> Trigger</button>} position="right center">
