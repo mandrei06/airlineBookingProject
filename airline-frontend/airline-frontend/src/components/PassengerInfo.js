@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import { Link, redirect, useNavigate } from "react-router-dom";
 import { ReactSession }  from 'react-client-session';
@@ -99,12 +100,15 @@ export default class PassengerInfo extends React.Component {
                   <Link to="/passenger">See Flight Details</Link>
                 </div>
               </div>
+          <button type="submit">
+                <Link to="/conformation">Confrim Flights</Link>
+                </button>
             </div>
-            <hr />
-          </form>
-        </section>
-      </React.Fragment>
-    );
-  };
+          </div>
+        </form>
+      </section>
+    </React.Fragment>
+  );
+};
 
 }

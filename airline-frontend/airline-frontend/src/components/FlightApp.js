@@ -53,14 +53,13 @@ export default class FlightApp extends React.Component {
     const bookingCode = Math.floor(Math.random() * 1000);
     const flightCode = window.originId*1;
     ReactSession.set("userId", clientCode);
-    
     const booking = {
       bookingId: bookingCode,
       flightId: flightCode,
       clientId: clientCode
     };
 
-    
+
     axios.post('http://localhost:8080/bookings/', booking)
     .then(response => console.log(response));
 
@@ -260,7 +259,6 @@ export default class FlightApp extends React.Component {
                 </div>
                 <button type="submit" onClick={this.postForm}>Save Infos</button>
                 <Link to="/passenger">See the Reservation Details</Link>
-                
               </div>
               <br></br>
               <div>
