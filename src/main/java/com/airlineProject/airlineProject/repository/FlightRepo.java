@@ -12,6 +12,7 @@ import java.util.List;
 @Repository
 public interface FlightRepo extends JpaRepository<Flight,Integer> {
     Flight findByFlightId(Integer flightId);
+
     @Query(value = "SELECT * FROM FLIGHT f WHERE f.origin =:origin",
             nativeQuery = true)
     List<Flight> findByFlightOrigin(@Param("origin")String origin);
@@ -28,4 +29,8 @@ public interface FlightRepo extends JpaRepository<Flight,Integer> {
 
     @Query(value = "SELECT date d FROM FLIGHT f WHERE f.origin =:origin AND f.destination =:destination",nativeQuery = true)
     ArrayList<String> findFlightDateByOriginAndDestination(String origin, String destination);
+
+
+    @Query(value = "SELECT * FROM flight WHERE origin in (SELECT origin FROM flight GROUP BY origin HAVING COUNT(origin)=1)",nativeQuery = true)
+    List<Flight> findDistinctAll();
 }
