@@ -16,6 +16,7 @@ public class BookingController {
 
 
 
+
     @PostMapping("/")
     public Booking saveBooking(@RequestBody Booking booking){
         return bookingService.saveBooking(booking);
