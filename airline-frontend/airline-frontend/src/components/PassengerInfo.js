@@ -13,7 +13,10 @@ export default class PassengerInfo extends React.Component {
     console.log(event.target.NIF.value);
     console.log(event.target.Age.value);
     console.log(event.target.luggage.value);
+    
     const clientSessionId=ReactSession.get("userId");
+    ReactSession.set("userName", event.target.firstName.value+" "+event.target.lastName.value);
+    window.alert(ReactSession.get("userName"));
     console.log(clientSessionId);
     const client={
       clientId:clientSessionId,
